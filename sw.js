@@ -2,10 +2,10 @@ importScripts('source/js/vendor/not-in-build/cache-polyfill.js');
 
 self.addEventListener('install', function(e) {
  e.waitUntil(
-   caches.open('airhorner').then(function(cache) {
+   caches.open('my-offline-webapp').then(function(cache) {
      return cache.addAll([
-       'html/homepage.html',
-       'html/list.html',
+       '/html/homepage.html',
+       '/html/list.html',
        '/dist/css/offline-pack.css',
        '/dist/js/offline-pack-debug.js',
      ]);
@@ -22,7 +22,7 @@ self.addEventListener('install', function(e) {
 self.addEventListener('fetch', function(event) {
     console.log(event.request.url);
     event.respondWith(
-        fetch(event.request).catch(function() {
+        fetch(event.request).catch(function(urls) {
             return caches.match(event.request);
         })
     );
