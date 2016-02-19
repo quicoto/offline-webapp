@@ -1,0 +1,14 @@
+/* line 6, ../sass/_base.scss */
+
+body {
+	font-weight: 300;
+	background-color: #337ab7;
+}
+
+/* line 11, ../sass/_base.scss */
+
+strong,
+b {
+	font-weight: 600;
+}
+
