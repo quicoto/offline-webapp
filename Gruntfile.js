@@ -281,4 +281,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'clean:productionCSS', 'clean:productionJS']);
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
+    // grunt preview
+	grunt.registerTask('preview', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html']);
 };
