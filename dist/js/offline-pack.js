@@ -12747,7 +12747,7 @@ $(document).ready(function() {
       var URLS = ['/html/third-page.html'];
 
       caches.open('my-offline-webapp').then(function(cache) {
-        fetch('/html/third-page.html').then(function() {
+        fetch('html/third-page.html').then(function() {
           cache.addAll(URLS);
         });
       });
