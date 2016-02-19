@@ -4,10 +4,10 @@ self.addEventListener('install', function(e) {
  e.waitUntil(
    caches.open('my-offline-webapp').then(function(cache) {
      return cache.addAll([
-       '/html/homepage.html',
-       '/html/list.html',
-       '/dist/css/offline-pack.css',
-       '/dist/js/offline-pack-debug.js',
+       '/offline-webapp/html/homepage.html',
+       '/offline-webapp/html/list.html',
+       '/offline-webapp/dist/css/offline-pack.css',
+       '/offline-webapp/dist/js/offline-pack-debug.js',
      ]);
    })
  );
