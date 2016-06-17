@@ -9,6 +9,7 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
+var projectName = "Offline WebApp";
 
 module.exports = function(grunt) {
 
@@ -20,18 +21,36 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		notify: {
+			html: {
+				options:{
+		            message: "HTML compiled"
+		        }
+			},
+			css: {
+				options:{
+		            message: "SASS compiled"
+		        }
+			},
+			js: {
+				options:{
+		            message: "JavaScript compiled"
+		        }
+			}
+		},
+
 		watch: {
 			html: {
 				files: ['source/html/*.html', 'source/html/*/*.html'],
-				tasks: ['clean:html', 'compile_html']
+				tasks: ['clean:html', 'compile_html', 'notify:html']
 			},
 			css: {
 				files: ['source/sass/**/*.{scss,sass}', 'source/img/sprite/*', ],
-				tasks: 'css_compile'
+				tasks: ['css_compile', 'notify:css']
 			},
 			js: {
 				files: 'source/js/**/*.js',
-				tasks: ['js_compile']
+				tasks: ['js_compile', 'notify:js']
 			},
 			grunt_conf: {
 				files: 'Gruntfile.js',
