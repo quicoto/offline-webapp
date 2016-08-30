@@ -1,26 +1,14 @@
-var CACHE_VERSION = 'v18';
+var CACHE_VERSION = 'v22';
 
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js', {
-        scope: '/'
-    }).then(function(reg) {
-        // registration worked
-        console.log('Registration succeeded. Scope is ' + reg.scope + ' Version: ' + CACHE_VERSION);
-    }).catch(function(error) {
-        // registration failed
-        console.log('Registration failed with ' + error);
-    });
-} // END if browser can handle Service Workers
 
 this.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(CACHE_VERSION).then(function(cache) {
             return cache.addAll([
-                '/sw.js',
                 '/html/homepage.html',
                 '/html/list.html',
-                '/dist/css/offline-pack.min.css',
-                '/dist/js/offline-pack.min.js',
+                '/dist/css/offline-pack.css',
+                '/dist/js/offline-pack.js',
                 '/dist/img/kitten.jpg',
             ]);
         })
