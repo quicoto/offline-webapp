@@ -18,9 +18,15 @@ self.addEventListener('install', function(event) {
         })
     );
 
-	event.waitUntil(self.skipWaiting());
+	/*
+		Don't wait until the user has left the page to update his service worker. Do it when he goes to any of your site's page.
+	*/
+    event.waitUntil(self.skipWaiting());
 });
 
+/*
+	Check for Cache first if it matches. If not, go network.
+*/
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request)
@@ -34,19 +40,24 @@ self.addEventListener('fetch', function(event) {
     );
 });
 
+/*
+	This is very important.
+	We need to clean old caches, otherwise we keep getting the old assets over and over.
+*/
+
 self.addEventListener('activate', function(event) {
 
-  var cacheWhitelist = [CACHE_NAME];
+    var cacheWhitelist = [CACHE_NAME];
 
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(cacheName) {
+                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
         })
-      );
-    })
-  );
+    );
 });
