@@ -1,4 +1,4 @@
-var CACHE_NAME = 'v28';
+var CACHE_NAME = 'v35';
 
 var urlsToCache = [
     '/html/homepage.html',
