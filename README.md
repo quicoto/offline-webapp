@@ -2,6 +2,10 @@ Offline webapp
 ======
 Service Workers FTW
 
+Demo
+======
+https://quicoto.github.io/offline-webapp/html/homepage.html
+
 MIT License
 ======
 
