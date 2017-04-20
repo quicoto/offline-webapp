@@ -1,5 +1,4 @@
-var CACHE_NAME = 'v46';
-console.log(CACHE_NAME);
+var CACHE_NAME = 'v47';
 
 var urlsToCache = [
     '/html/homepage.html',
@@ -14,6 +13,7 @@ self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
         .then(function(cache) {
+            console.log(CACHE_NAME);
             console.log('Opened cache');
             return cache.addAll(urlsToCache);
         })
