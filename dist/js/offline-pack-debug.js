@@ -1,3 +1,6 @@
+var DEBUG = true; // only for debug!!!
+
+
 // Install - This file will be cached by Service Worker
 
 if ('serviceWorker' in navigator) {

@@ -174,22 +174,22 @@ module.exports = function(grunt) {
 		cssmin: {
 			vendor: {
 				src: 'dist/css/offline-vendor.css',
-				dest: 'dist/css/offline-vendor.min.css'
+				dest: 'dist/css/offline-vendor.css'
 			},
 
 			main: {
 				src: 'dist/css/offline-main.css',
-				dest: 'dist/css/offline-main.min.css'
+				dest: 'dist/css/offline-main.css'
 			},
 
 			ie8: {
 				src: 'dist/css/offline-ie8.css',
-				dest: 'dist/css/offline-ie8.min.css'
+				dest: 'dist/css/offline-ie8.css'
 			},
 
 			pack: {
 				src: 'dist/css/offline-pack.css',
-				dest: 'dist/css/offline-pack.min.css'
+				dest: 'dist/css/offline-pack.css'
 			}
 		},
 
@@ -206,9 +206,9 @@ module.exports = function(grunt) {
 
 			js: {
 				files: {
-					'dist/js/offline-app.min.js': ['dist/js/offline-app.js'],
-					'dist/js/offline-vendor.min.js': ['dist/js/offline-vendor.js'],
-					'dist/js/offline-pack.min.js': ['dist/js/offline-pack.js']
+					'dist/js/offline-app.js': ['dist/js/offline-app.js'],
+					'dist/js/offline-vendor.js': ['dist/js/offline-vendor.js'],
+					'dist/js/offline-pack.js': ['dist/js/offline-pack.js']
 				}
 			}
 		},
@@ -238,15 +238,7 @@ module.exports = function(grunt) {
 
 			html: {
 				src: ['html/*']
-			},
-
-            productionCSS: {
-                src: ["dist/css/*.css", "!dist/css/*.min.css", "dist/css/offline-vendor.min.css", "dist/css/offline-main.min.css"]
-            },
-
-            productionJS: {
-                src: ["dist/js/*.js", "!dist/js/*.min.js", "dist/js/offline-main.min.js", "dist/js/offline-vendor.min.js", "dist/js/offline-app.min.js"]
-            }
+			}
 		},
 
 		copy: {
@@ -297,7 +289,7 @@ module.exports = function(grunt) {
 
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'clean:productionCSS', 'clean:productionJS']);
+	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html']);
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
     // grunt preview

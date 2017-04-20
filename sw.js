@@ -1,4 +1,5 @@
-var CACHE_NAME = 'v35';
+var CACHE_NAME = 'v46';
+console.log(CACHE_NAME);
 
 var urlsToCache = [
     '/html/homepage.html',
@@ -54,6 +55,7 @@ self.addEventListener('activate', function(event) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        console.log('deleting cache');
                         return caches.delete(cacheName);
                     }
                 })
