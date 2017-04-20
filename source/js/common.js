@@ -2,7 +2,7 @@
 
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function() {
-		navigator.serviceWorker.register('/sw.js').then(function(registration) {
+		navigator.serviceWorker.register('../sw.js').then(function(registration) {
 			// Registration was successful
 			console.log('ServiceWorker registration successful with scope: ', registration.scope);
 		}, function(err) {
@@ -39,7 +39,7 @@ window.addEventListener('offline', function() {
 });
 
 $(function() {
-	$.ajax("../../mocks/api.json")
+	$.ajax("../mocks/api.json")
 	.done(function(data) {
 		console.log("Mocks loaded");
 
