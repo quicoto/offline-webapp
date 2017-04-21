@@ -1,11 +1,11 @@
 var CACHE_NAME = 'v50';
 
 var urlsToCache = [
-    '../html/homepage.html',
-    '../html/list.html',
-    '../dist/css/offline-pack.css',
-    '../dist/js/offline-pack.js',
-    '../dist/img/no-image.png'
+    'html/homepage.html',
+    'html/list.html',
+    'dist/css/offline-pack.css',
+    'dist/js/offline-pack.js',
+    'dist/img/no-image.png'
 ];
 
 self.addEventListener('install', function(event) {
