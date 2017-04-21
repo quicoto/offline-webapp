@@ -1,11 +1,11 @@
-var CACHE_NAME = 'v47';
+var CACHE_NAME = 'v50';
 
 var urlsToCache = [
-    '/html/homepage.html',
-    '/html/list.html',
-    '/dist/css/offline-pack.css',
-    '/dist/js/offline-pack.js',
-    '/dist/img/kitten.jpg',
+    '../html/homepage.html',
+    '../html/list.html',
+    '../dist/css/offline-pack.css',
+    '../dist/js/offline-pack.js',
+    '../dist/img/no-image.png'
 ];
 
 self.addEventListener('install', function(event) {
@@ -29,14 +29,19 @@ self.addEventListener('install', function(event) {
 	Check for Cache first if it matches. If not, go network.
 */
 self.addEventListener('fetch', function(event) {
+    var request = event.request;
+
     event.respondWith(
-        caches.match(event.request)
+        caches.match(request)
         .then(function(response) {
-            // Cache hit - return response
             if (response) {
+                // Cache hit - return cached nresponse
                 return response;
+            } else {
+                // Request not in Cache
+                // Just get it from network if you can
+                return fetch(request);
             }
-            return fetch(event.request);
         })
     );
 });
